@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package notification;
+
+option go_package="github.com/DEEBBLUE/StudyContracts/api/Notification";
+
+message CreateNotificationReq{
+  string group = 1;
+  string deadline = 2;
+  string subject = 3;
+  string task = 4;
+  string materials = 5;
+}
+message CreateNotificationRes{
+  int32 status = 1;
+}
+
+message RemoveNotioficationReq{
+  int32 notificationId = 1;
+}
+message RemoveNotioficationRes{
+  int32 status = 1;
+}
+
+service Notification{
+  rpc AddNotiofication(CreateNotificationReq)
+    returns (CreateNotificationRes);
+  rpc RemoveNotiofication(RemoveNotioficationReq)
+    returns (RemoveNotioficationRes);
+}
