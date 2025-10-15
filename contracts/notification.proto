@@ -12,11 +12,11 @@ message CreateNotificationReq{
   string materials = 5;
 }
 message CreateNotificationRes{
-  int32 status = 1;
+  int32 id = 1;
 }
 
 message RemoveNotioficationReq{
-  int32 notificationId = 1;
+  int32 id = 1;
 }
 message RemoveNotioficationRes{
   int32 status = 1;

@@ -99,7 +99,7 @@ func (x *CreateNotificationReq) GetMaterials() string {
 
 type CreateNotificationRes struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Status        int32                  `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -134,18 +134,18 @@ func (*CreateNotificationRes) Descriptor() ([]byte, []int) {
 	return file_notification_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateNotificationRes) GetStatus() int32 {
+func (x *CreateNotificationRes) GetId() int32 {
 	if x != nil {
-		return x.Status
+		return x.Id
 	}
 	return 0
 }
 
 type RemoveNotioficationReq struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	NotificationId int32                  `protobuf:"varint,1,opt,name=notificationId,proto3" json:"notificationId,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RemoveNotioficationReq) Reset() {
@@ -178,9 +178,9 @@ func (*RemoveNotioficationReq) Descriptor() ([]byte, []int) {
 	return file_notification_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *RemoveNotioficationReq) GetNotificationId() int32 {
+func (x *RemoveNotioficationReq) GetId() int32 {
 	if x != nil {
-		return x.NotificationId
+		return x.Id
 	}
 	return 0
 }
@@ -239,11 +239,11 @@ const file_notification_proto_rawDesc = "" +
 	"\bdeadline\x18\x02 \x01(\tR\bdeadline\x12\x18\n" +
 	"\asubject\x18\x03 \x01(\tR\asubject\x12\x12\n" +
 	"\x04task\x18\x04 \x01(\tR\x04task\x12\x1c\n" +
-	"\tmaterials\x18\x05 \x01(\tR\tmaterials\"/\n" +
-	"\x15CreateNotificationRes\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\x05R\x06status\"@\n" +
-	"\x16RemoveNotioficationReq\x12&\n" +
-	"\x0enotificationId\x18\x01 \x01(\x05R\x0enotificationId\"0\n" +
+	"\tmaterials\x18\x05 \x01(\tR\tmaterials\"'\n" +
+	"\x15CreateNotificationRes\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"(\n" +
+	"\x16RemoveNotioficationReq\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"0\n" +
 	"\x16RemoveNotioficationRes\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\x05R\x06status2\xcf\x01\n" +
 	"\fNotification\x12\\\n" +
