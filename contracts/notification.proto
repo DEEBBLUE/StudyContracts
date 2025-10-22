@@ -5,21 +5,21 @@ package notification;
 option go_package="github.com/DEEBBLUE/StudyContracts/api/Notification";
 
 message CreateNotificationReq{
-  string group = 1;
+  string group_id = 1;
   string deadline = 2;
   string subject = 3;
-  string task = 4;
-  string materials = 5;
+  string task_id = 4;
+  string materials_id = 5;
+  string owner_id = 6;
 }
 message CreateNotificationRes{
-  int32 id = 1;
 }
 
 message RemoveNotioficationReq{
   int32 id = 1;
 }
+
 message RemoveNotioficationRes{
-  int32 status = 1;
 }
 
 service Notification{
