@@ -23,11 +23,12 @@ const (
 
 type CreateNotificationReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Group         string                 `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
+	GroupId       string                 `protobuf:"bytes,1,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
 	Deadline      string                 `protobuf:"bytes,2,opt,name=deadline,proto3" json:"deadline,omitempty"`
 	Subject       string                 `protobuf:"bytes,3,opt,name=subject,proto3" json:"subject,omitempty"`
-	Task          string                 `protobuf:"bytes,4,opt,name=task,proto3" json:"task,omitempty"`
-	Materials     string                 `protobuf:"bytes,5,opt,name=materials,proto3" json:"materials,omitempty"`
+	TaskId        string                 `protobuf:"bytes,4,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	MaterialsId   string                 `protobuf:"bytes,5,opt,name=materials_id,json=materialsId,proto3" json:"materials_id,omitempty"`
+	OwnerId       string                 `protobuf:"bytes,6,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -62,9 +63,9 @@ func (*CreateNotificationReq) Descriptor() ([]byte, []int) {
 	return file_notification_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateNotificationReq) GetGroup() string {
+func (x *CreateNotificationReq) GetGroupId() string {
 	if x != nil {
-		return x.Group
+		return x.GroupId
 	}
 	return ""
 }
@@ -83,23 +84,29 @@ func (x *CreateNotificationReq) GetSubject() string {
 	return ""
 }
 
-func (x *CreateNotificationReq) GetTask() string {
+func (x *CreateNotificationReq) GetTaskId() string {
 	if x != nil {
-		return x.Task
+		return x.TaskId
 	}
 	return ""
 }
 
-func (x *CreateNotificationReq) GetMaterials() string {
+func (x *CreateNotificationReq) GetMaterialsId() string {
 	if x != nil {
-		return x.Materials
+		return x.MaterialsId
+	}
+	return ""
+}
+
+func (x *CreateNotificationReq) GetOwnerId() string {
+	if x != nil {
+		return x.OwnerId
 	}
 	return ""
 }
 
 type CreateNotificationRes struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -132,13 +139,6 @@ func (x *CreateNotificationRes) ProtoReflect() protoreflect.Message {
 // Deprecated: Use CreateNotificationRes.ProtoReflect.Descriptor instead.
 func (*CreateNotificationRes) Descriptor() ([]byte, []int) {
 	return file_notification_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *CreateNotificationRes) GetId() int32 {
-	if x != nil {
-		return x.Id
-	}
-	return 0
 }
 
 type RemoveNotioficationReq struct {
@@ -187,7 +187,6 @@ func (x *RemoveNotioficationReq) GetId() int32 {
 
 type RemoveNotioficationRes struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Status        int32                  `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -222,30 +221,22 @@ func (*RemoveNotioficationRes) Descriptor() ([]byte, []int) {
 	return file_notification_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *RemoveNotioficationRes) GetStatus() int32 {
-	if x != nil {
-		return x.Status
-	}
-	return 0
-}
-
 var File_notification_proto protoreflect.FileDescriptor
 
 const file_notification_proto_rawDesc = "" +
 	"\n" +
-	"\x12notification.proto\x12\fnotification\"\x95\x01\n" +
-	"\x15CreateNotificationReq\x12\x14\n" +
-	"\x05group\x18\x01 \x01(\tR\x05group\x12\x1a\n" +
+	"\x12notification.proto\x12\fnotification\"\xbf\x01\n" +
+	"\x15CreateNotificationReq\x12\x19\n" +
+	"\bgroup_id\x18\x01 \x01(\tR\agroupId\x12\x1a\n" +
 	"\bdeadline\x18\x02 \x01(\tR\bdeadline\x12\x18\n" +
-	"\asubject\x18\x03 \x01(\tR\asubject\x12\x12\n" +
-	"\x04task\x18\x04 \x01(\tR\x04task\x12\x1c\n" +
-	"\tmaterials\x18\x05 \x01(\tR\tmaterials\"'\n" +
-	"\x15CreateNotificationRes\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"(\n" +
+	"\asubject\x18\x03 \x01(\tR\asubject\x12\x17\n" +
+	"\atask_id\x18\x04 \x01(\tR\x06taskId\x12!\n" +
+	"\fmaterials_id\x18\x05 \x01(\tR\vmaterialsId\x12\x19\n" +
+	"\bowner_id\x18\x06 \x01(\tR\aownerId\"\x17\n" +
+	"\x15CreateNotificationRes\"(\n" +
 	"\x16RemoveNotioficationReq\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"0\n" +
-	"\x16RemoveNotioficationRes\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\x05R\x06status2\xcf\x01\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"\x18\n" +
+	"\x16RemoveNotioficationRes2\xcf\x01\n" +
 	"\fNotification\x12\\\n" +
 	"\x10AddNotiofication\x12#.notification.CreateNotificationReq\x1a#.notification.CreateNotificationRes\x12a\n" +
 	"\x13RemoveNotiofication\x12$.notification.RemoveNotioficationReq\x1a$.notification.RemoveNotioficationResB5Z3github.com/DEEBBLUE/StudyContracts/api/Notificationb\x06proto3"
