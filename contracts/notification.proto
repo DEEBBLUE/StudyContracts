@@ -4,7 +4,7 @@ package notification;
 
 option go_package="github.com/DEEBBLUE/StudyContracts/api/Notification";
 
-message CreateNotificationReq{
+message CreateNotificationForGroupReq{
   string group_id = 1;
   string deadline = 2;
   string subject = 3;
@@ -16,7 +16,7 @@ message CreateNotificationReq{
 message CreateNotificationRes{
 }
 
-message RemoveNotioficationReq{
+message RemoveNotioficationForGroupReq{
   int32 id = 1;
 }
 
@@ -24,8 +24,8 @@ message RemoveNotioficationRes{
 }
 
 service Notification{
-  rpc AddNotiofication(CreateNotificationReq)
+  rpc AddNotioficationForGroup(CreateNotificationForGroupReq)
     returns (CreateNotificationRes);
-  rpc RemoveNotiofication(RemoveNotioficationReq)
+  rpc RemoveNotioficationForGroup(RemoveNotioficationForGroupReq)
     returns (RemoveNotioficationRes);
 }

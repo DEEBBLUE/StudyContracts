@@ -21,7 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CreateNotificationReq struct {
+type CreateNotificationForGroupReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	GroupId       string                 `protobuf:"bytes,1,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
 	Deadline      string                 `protobuf:"bytes,2,opt,name=deadline,proto3" json:"deadline,omitempty"`
@@ -34,20 +34,20 @@ type CreateNotificationReq struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CreateNotificationReq) Reset() {
-	*x = CreateNotificationReq{}
+func (x *CreateNotificationForGroupReq) Reset() {
+	*x = CreateNotificationForGroupReq{}
 	mi := &file_notification_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CreateNotificationReq) String() string {
+func (x *CreateNotificationForGroupReq) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreateNotificationReq) ProtoMessage() {}
+func (*CreateNotificationForGroupReq) ProtoMessage() {}
 
-func (x *CreateNotificationReq) ProtoReflect() protoreflect.Message {
+func (x *CreateNotificationForGroupReq) ProtoReflect() protoreflect.Message {
 	mi := &file_notification_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -59,54 +59,54 @@ func (x *CreateNotificationReq) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreateNotificationReq.ProtoReflect.Descriptor instead.
-func (*CreateNotificationReq) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateNotificationForGroupReq.ProtoReflect.Descriptor instead.
+func (*CreateNotificationForGroupReq) Descriptor() ([]byte, []int) {
 	return file_notification_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateNotificationReq) GetGroupId() string {
+func (x *CreateNotificationForGroupReq) GetGroupId() string {
 	if x != nil {
 		return x.GroupId
 	}
 	return ""
 }
 
-func (x *CreateNotificationReq) GetDeadline() string {
+func (x *CreateNotificationForGroupReq) GetDeadline() string {
 	if x != nil {
 		return x.Deadline
 	}
 	return ""
 }
 
-func (x *CreateNotificationReq) GetSubject() string {
+func (x *CreateNotificationForGroupReq) GetSubject() string {
 	if x != nil {
 		return x.Subject
 	}
 	return ""
 }
 
-func (x *CreateNotificationReq) GetTaskId() string {
+func (x *CreateNotificationForGroupReq) GetTaskId() string {
 	if x != nil {
 		return x.TaskId
 	}
 	return ""
 }
 
-func (x *CreateNotificationReq) GetMaterialsId() string {
+func (x *CreateNotificationForGroupReq) GetMaterialsId() string {
 	if x != nil {
 		return x.MaterialsId
 	}
 	return ""
 }
 
-func (x *CreateNotificationReq) GetOwnerId() string {
+func (x *CreateNotificationForGroupReq) GetOwnerId() string {
 	if x != nil {
 		return x.OwnerId
 	}
 	return ""
 }
 
-func (x *CreateNotificationReq) GetConsumer() string {
+func (x *CreateNotificationForGroupReq) GetConsumer() string {
 	if x != nil {
 		return x.Consumer
 	}
@@ -149,27 +149,27 @@ func (*CreateNotificationRes) Descriptor() ([]byte, []int) {
 	return file_notification_proto_rawDescGZIP(), []int{1}
 }
 
-type RemoveNotioficationReq struct {
+type RemoveNotioficationForGroupReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *RemoveNotioficationReq) Reset() {
-	*x = RemoveNotioficationReq{}
+func (x *RemoveNotioficationForGroupReq) Reset() {
+	*x = RemoveNotioficationForGroupReq{}
 	mi := &file_notification_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *RemoveNotioficationReq) String() string {
+func (x *RemoveNotioficationForGroupReq) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RemoveNotioficationReq) ProtoMessage() {}
+func (*RemoveNotioficationForGroupReq) ProtoMessage() {}
 
-func (x *RemoveNotioficationReq) ProtoReflect() protoreflect.Message {
+func (x *RemoveNotioficationForGroupReq) ProtoReflect() protoreflect.Message {
 	mi := &file_notification_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -181,12 +181,12 @@ func (x *RemoveNotioficationReq) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RemoveNotioficationReq.ProtoReflect.Descriptor instead.
-func (*RemoveNotioficationReq) Descriptor() ([]byte, []int) {
+// Deprecated: Use RemoveNotioficationForGroupReq.ProtoReflect.Descriptor instead.
+func (*RemoveNotioficationForGroupReq) Descriptor() ([]byte, []int) {
 	return file_notification_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *RemoveNotioficationReq) GetId() int32 {
+func (x *RemoveNotioficationForGroupReq) GetId() int32 {
 	if x != nil {
 		return x.Id
 	}
@@ -233,8 +233,8 @@ var File_notification_proto protoreflect.FileDescriptor
 
 const file_notification_proto_rawDesc = "" +
 	"\n" +
-	"\x12notification.proto\x12\fnotification\"\xdb\x01\n" +
-	"\x15CreateNotificationReq\x12\x19\n" +
+	"\x12notification.proto\x12\fnotification\"\xe3\x01\n" +
+	"\x1dCreateNotificationForGroupReq\x12\x19\n" +
 	"\bgroup_id\x18\x01 \x01(\tR\agroupId\x12\x1a\n" +
 	"\bdeadline\x18\x02 \x01(\tR\bdeadline\x12\x18\n" +
 	"\asubject\x18\x03 \x01(\tR\asubject\x12\x17\n" +
@@ -242,13 +242,13 @@ const file_notification_proto_rawDesc = "" +
 	"\fmaterials_id\x18\x05 \x01(\tR\vmaterialsId\x12\x19\n" +
 	"\bowner_id\x18\x06 \x01(\tR\aownerId\x12\x1a\n" +
 	"\bconsumer\x18\a \x01(\tR\bconsumer\"\x17\n" +
-	"\x15CreateNotificationRes\"(\n" +
-	"\x16RemoveNotioficationReq\x12\x0e\n" +
+	"\x15CreateNotificationRes\"0\n" +
+	"\x1eRemoveNotioficationForGroupReq\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\"\x18\n" +
-	"\x16RemoveNotioficationRes2\xcf\x01\n" +
-	"\fNotification\x12\\\n" +
-	"\x10AddNotiofication\x12#.notification.CreateNotificationReq\x1a#.notification.CreateNotificationRes\x12a\n" +
-	"\x13RemoveNotiofication\x12$.notification.RemoveNotioficationReq\x1a$.notification.RemoveNotioficationResB5Z3github.com/DEEBBLUE/StudyContracts/api/Notificationb\x06proto3"
+	"\x16RemoveNotioficationRes2\xef\x01\n" +
+	"\fNotification\x12l\n" +
+	"\x18AddNotioficationForGroup\x12+.notification.CreateNotificationForGroupReq\x1a#.notification.CreateNotificationRes\x12q\n" +
+	"\x1bRemoveNotioficationForGroup\x12,.notification.RemoveNotioficationForGroupReq\x1a$.notification.RemoveNotioficationResB5Z3github.com/DEEBBLUE/StudyContracts/api/Notificationb\x06proto3"
 
 var (
 	file_notification_proto_rawDescOnce sync.Once
@@ -264,16 +264,16 @@ func file_notification_proto_rawDescGZIP() []byte {
 
 var file_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_notification_proto_goTypes = []any{
-	(*CreateNotificationReq)(nil),  // 0: notification.CreateNotificationReq
-	(*CreateNotificationRes)(nil),  // 1: notification.CreateNotificationRes
-	(*RemoveNotioficationReq)(nil), // 2: notification.RemoveNotioficationReq
-	(*RemoveNotioficationRes)(nil), // 3: notification.RemoveNotioficationRes
+	(*CreateNotificationForGroupReq)(nil),  // 0: notification.CreateNotificationForGroupReq
+	(*CreateNotificationRes)(nil),          // 1: notification.CreateNotificationRes
+	(*RemoveNotioficationForGroupReq)(nil), // 2: notification.RemoveNotioficationForGroupReq
+	(*RemoveNotioficationRes)(nil),         // 3: notification.RemoveNotioficationRes
 }
 var file_notification_proto_depIdxs = []int32{
-	0, // 0: notification.Notification.AddNotiofication:input_type -> notification.CreateNotificationReq
-	2, // 1: notification.Notification.RemoveNotiofication:input_type -> notification.RemoveNotioficationReq
-	1, // 2: notification.Notification.AddNotiofication:output_type -> notification.CreateNotificationRes
-	3, // 3: notification.Notification.RemoveNotiofication:output_type -> notification.RemoveNotioficationRes
+	0, // 0: notification.Notification.AddNotioficationForGroup:input_type -> notification.CreateNotificationForGroupReq
+	2, // 1: notification.Notification.RemoveNotioficationForGroup:input_type -> notification.RemoveNotioficationForGroupReq
+	1, // 2: notification.Notification.AddNotioficationForGroup:output_type -> notification.CreateNotificationRes
+	3, // 3: notification.Notification.RemoveNotioficationForGroup:output_type -> notification.RemoveNotioficationRes
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

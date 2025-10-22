@@ -19,16 +19,16 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Notification_AddNotiofication_FullMethodName    = "/notification.Notification/AddNotiofication"
-	Notification_RemoveNotiofication_FullMethodName = "/notification.Notification/RemoveNotiofication"
+	Notification_AddNotioficationForGroup_FullMethodName    = "/notification.Notification/AddNotioficationForGroup"
+	Notification_RemoveNotioficationForGroup_FullMethodName = "/notification.Notification/RemoveNotioficationForGroup"
 )
 
 // NotificationClient is the client API for Notification service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type NotificationClient interface {
-	AddNotiofication(ctx context.Context, in *CreateNotificationReq, opts ...grpc.CallOption) (*CreateNotificationRes, error)
-	RemoveNotiofication(ctx context.Context, in *RemoveNotioficationReq, opts ...grpc.CallOption) (*RemoveNotioficationRes, error)
+	AddNotioficationForGroup(ctx context.Context, in *CreateNotificationForGroupReq, opts ...grpc.CallOption) (*CreateNotificationRes, error)
+	RemoveNotioficationForGroup(ctx context.Context, in *RemoveNotioficationForGroupReq, opts ...grpc.CallOption) (*RemoveNotioficationRes, error)
 }
 
 type notificationClient struct {
@@ -39,20 +39,20 @@ func NewNotificationClient(cc grpc.ClientConnInterface) NotificationClient {
 	return &notificationClient{cc}
 }
 
-func (c *notificationClient) AddNotiofication(ctx context.Context, in *CreateNotificationReq, opts ...grpc.CallOption) (*CreateNotificationRes, error) {
+func (c *notificationClient) AddNotioficationForGroup(ctx context.Context, in *CreateNotificationForGroupReq, opts ...grpc.CallOption) (*CreateNotificationRes, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateNotificationRes)
-	err := c.cc.Invoke(ctx, Notification_AddNotiofication_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Notification_AddNotioficationForGroup_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *notificationClient) RemoveNotiofication(ctx context.Context, in *RemoveNotioficationReq, opts ...grpc.CallOption) (*RemoveNotioficationRes, error) {
+func (c *notificationClient) RemoveNotioficationForGroup(ctx context.Context, in *RemoveNotioficationForGroupReq, opts ...grpc.CallOption) (*RemoveNotioficationRes, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveNotioficationRes)
-	err := c.cc.Invoke(ctx, Notification_RemoveNotiofication_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Notification_RemoveNotioficationForGroup_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,8 +63,8 @@ func (c *notificationClient) RemoveNotiofication(ctx context.Context, in *Remove
 // All implementations must embed UnimplementedNotificationServer
 // for forward compatibility.
 type NotificationServer interface {
-	AddNotiofication(context.Context, *CreateNotificationReq) (*CreateNotificationRes, error)
-	RemoveNotiofication(context.Context, *RemoveNotioficationReq) (*RemoveNotioficationRes, error)
+	AddNotioficationForGroup(context.Context, *CreateNotificationForGroupReq) (*CreateNotificationRes, error)
+	RemoveNotioficationForGroup(context.Context, *RemoveNotioficationForGroupReq) (*RemoveNotioficationRes, error)
 	mustEmbedUnimplementedNotificationServer()
 }
 
@@ -75,11 +75,11 @@ type NotificationServer interface {
 // pointer dereference when methods are called.
 type UnimplementedNotificationServer struct{}
 
-func (UnimplementedNotificationServer) AddNotiofication(context.Context, *CreateNotificationReq) (*CreateNotificationRes, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AddNotiofication not implemented")
+func (UnimplementedNotificationServer) AddNotioficationForGroup(context.Context, *CreateNotificationForGroupReq) (*CreateNotificationRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddNotioficationForGroup not implemented")
 }
-func (UnimplementedNotificationServer) RemoveNotiofication(context.Context, *RemoveNotioficationReq) (*RemoveNotioficationRes, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RemoveNotiofication not implemented")
+func (UnimplementedNotificationServer) RemoveNotioficationForGroup(context.Context, *RemoveNotioficationForGroupReq) (*RemoveNotioficationRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveNotioficationForGroup not implemented")
 }
 func (UnimplementedNotificationServer) mustEmbedUnimplementedNotificationServer() {}
 func (UnimplementedNotificationServer) testEmbeddedByValue()                      {}
@@ -102,38 +102,38 @@ func RegisterNotificationServer(s grpc.ServiceRegistrar, srv NotificationServer)
 	s.RegisterService(&Notification_ServiceDesc, srv)
 }
 
-func _Notification_AddNotiofication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateNotificationReq)
+func _Notification_AddNotioficationForGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateNotificationForGroupReq)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NotificationServer).AddNotiofication(ctx, in)
+		return srv.(NotificationServer).AddNotioficationForGroup(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Notification_AddNotiofication_FullMethodName,
+		FullMethod: Notification_AddNotioficationForGroup_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NotificationServer).AddNotiofication(ctx, req.(*CreateNotificationReq))
+		return srv.(NotificationServer).AddNotioficationForGroup(ctx, req.(*CreateNotificationForGroupReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Notification_RemoveNotiofication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveNotioficationReq)
+func _Notification_RemoveNotioficationForGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveNotioficationForGroupReq)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NotificationServer).RemoveNotiofication(ctx, in)
+		return srv.(NotificationServer).RemoveNotioficationForGroup(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Notification_RemoveNotiofication_FullMethodName,
+		FullMethod: Notification_RemoveNotioficationForGroup_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NotificationServer).RemoveNotiofication(ctx, req.(*RemoveNotioficationReq))
+		return srv.(NotificationServer).RemoveNotioficationForGroup(ctx, req.(*RemoveNotioficationForGroupReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -146,12 +146,12 @@ var Notification_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*NotificationServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "AddNotiofication",
-			Handler:    _Notification_AddNotiofication_Handler,
+			MethodName: "AddNotioficationForGroup",
+			Handler:    _Notification_AddNotioficationForGroup_Handler,
 		},
 		{
-			MethodName: "RemoveNotiofication",
-			Handler:    _Notification_RemoveNotiofication_Handler,
+			MethodName: "RemoveNotioficationForGroup",
+			Handler:    _Notification_RemoveNotioficationForGroup_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
