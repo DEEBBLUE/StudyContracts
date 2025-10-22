@@ -11,6 +11,7 @@ message CreateNotificationReq{
   string task_id = 4;
   string materials_id = 5;
   string owner_id = 6;
+  string consumer = 7;
 }
 message CreateNotificationRes{
 }
