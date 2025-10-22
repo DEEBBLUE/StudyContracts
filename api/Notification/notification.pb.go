@@ -23,7 +23,7 @@ const (
 
 type CreateNotificationForGroupReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	GroupId       string                 `protobuf:"bytes,1,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	GroupId       int32                  `protobuf:"varint,1,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
 	Deadline      string                 `protobuf:"bytes,2,opt,name=deadline,proto3" json:"deadline,omitempty"`
 	Subject       string                 `protobuf:"bytes,3,opt,name=subject,proto3" json:"subject,omitempty"`
 	TaskId        string                 `protobuf:"bytes,4,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
@@ -64,11 +64,11 @@ func (*CreateNotificationForGroupReq) Descriptor() ([]byte, []int) {
 	return file_notification_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateNotificationForGroupReq) GetGroupId() string {
+func (x *CreateNotificationForGroupReq) GetGroupId() int32 {
 	if x != nil {
 		return x.GroupId
 	}
-	return ""
+	return 0
 }
 
 func (x *CreateNotificationForGroupReq) GetDeadline() string {
@@ -235,7 +235,7 @@ const file_notification_proto_rawDesc = "" +
 	"\n" +
 	"\x12notification.proto\x12\fnotification\"\xe3\x01\n" +
 	"\x1dCreateNotificationForGroupReq\x12\x19\n" +
-	"\bgroup_id\x18\x01 \x01(\tR\agroupId\x12\x1a\n" +
+	"\bgroup_id\x18\x01 \x01(\x05R\agroupId\x12\x1a\n" +
 	"\bdeadline\x18\x02 \x01(\tR\bdeadline\x12\x18\n" +
 	"\asubject\x18\x03 \x01(\tR\asubject\x12\x17\n" +
 	"\atask_id\x18\x04 \x01(\tR\x06taskId\x12!\n" +
