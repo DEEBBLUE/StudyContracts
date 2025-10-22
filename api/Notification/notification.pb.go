@@ -26,10 +26,10 @@ type CreateNotificationForGroupReq struct {
 	GroupId       int32                  `protobuf:"varint,1,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
 	Deadline      string                 `protobuf:"bytes,2,opt,name=deadline,proto3" json:"deadline,omitempty"`
 	Subject       string                 `protobuf:"bytes,3,opt,name=subject,proto3" json:"subject,omitempty"`
-	TaskId        string                 `protobuf:"bytes,4,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
-	MaterialsId   string                 `protobuf:"bytes,5,opt,name=materials_id,json=materialsId,proto3" json:"materials_id,omitempty"`
-	OwnerId       string                 `protobuf:"bytes,6,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`
-	Consumer      string                 `protobuf:"bytes,7,opt,name=consumer,proto3" json:"consumer,omitempty"`
+	TaskId        int32                  `protobuf:"varint,4,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	MaterialsId   int32                  `protobuf:"varint,5,opt,name=materials_id,json=materialsId,proto3" json:"materials_id,omitempty"`
+	OwnerId       int32                  `protobuf:"varint,6,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`
+	Consumer      int32                  `protobuf:"varint,7,opt,name=consumer,proto3" json:"consumer,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -85,32 +85,32 @@ func (x *CreateNotificationForGroupReq) GetSubject() string {
 	return ""
 }
 
-func (x *CreateNotificationForGroupReq) GetTaskId() string {
+func (x *CreateNotificationForGroupReq) GetTaskId() int32 {
 	if x != nil {
 		return x.TaskId
 	}
-	return ""
+	return 0
 }
 
-func (x *CreateNotificationForGroupReq) GetMaterialsId() string {
+func (x *CreateNotificationForGroupReq) GetMaterialsId() int32 {
 	if x != nil {
 		return x.MaterialsId
 	}
-	return ""
+	return 0
 }
 
-func (x *CreateNotificationForGroupReq) GetOwnerId() string {
+func (x *CreateNotificationForGroupReq) GetOwnerId() int32 {
 	if x != nil {
 		return x.OwnerId
 	}
-	return ""
+	return 0
 }
 
-func (x *CreateNotificationForGroupReq) GetConsumer() string {
+func (x *CreateNotificationForGroupReq) GetConsumer() int32 {
 	if x != nil {
 		return x.Consumer
 	}
-	return ""
+	return 0
 }
 
 type CreateNotificationRes struct {
@@ -238,10 +238,10 @@ const file_notification_proto_rawDesc = "" +
 	"\bgroup_id\x18\x01 \x01(\x05R\agroupId\x12\x1a\n" +
 	"\bdeadline\x18\x02 \x01(\tR\bdeadline\x12\x18\n" +
 	"\asubject\x18\x03 \x01(\tR\asubject\x12\x17\n" +
-	"\atask_id\x18\x04 \x01(\tR\x06taskId\x12!\n" +
-	"\fmaterials_id\x18\x05 \x01(\tR\vmaterialsId\x12\x19\n" +
-	"\bowner_id\x18\x06 \x01(\tR\aownerId\x12\x1a\n" +
-	"\bconsumer\x18\a \x01(\tR\bconsumer\"\x17\n" +
+	"\atask_id\x18\x04 \x01(\x05R\x06taskId\x12!\n" +
+	"\fmaterials_id\x18\x05 \x01(\x05R\vmaterialsId\x12\x19\n" +
+	"\bowner_id\x18\x06 \x01(\x05R\aownerId\x12\x1a\n" +
+	"\bconsumer\x18\a \x01(\x05R\bconsumer\"\x17\n" +
 	"\x15CreateNotificationRes\"0\n" +
 	"\x1eRemoveNotioficationForGroupReq\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\"\x18\n" +
