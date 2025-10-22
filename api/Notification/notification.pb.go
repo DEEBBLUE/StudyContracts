@@ -29,6 +29,7 @@ type CreateNotificationReq struct {
 	TaskId        string                 `protobuf:"bytes,4,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
 	MaterialsId   string                 `protobuf:"bytes,5,opt,name=materials_id,json=materialsId,proto3" json:"materials_id,omitempty"`
 	OwnerId       string                 `protobuf:"bytes,6,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`
+	Consumer      string                 `protobuf:"bytes,7,opt,name=consumer,proto3" json:"consumer,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -101,6 +102,13 @@ func (x *CreateNotificationReq) GetMaterialsId() string {
 func (x *CreateNotificationReq) GetOwnerId() string {
 	if x != nil {
 		return x.OwnerId
+	}
+	return ""
+}
+
+func (x *CreateNotificationReq) GetConsumer() string {
+	if x != nil {
+		return x.Consumer
 	}
 	return ""
 }
@@ -225,14 +233,15 @@ var File_notification_proto protoreflect.FileDescriptor
 
 const file_notification_proto_rawDesc = "" +
 	"\n" +
-	"\x12notification.proto\x12\fnotification\"\xbf\x01\n" +
+	"\x12notification.proto\x12\fnotification\"\xdb\x01\n" +
 	"\x15CreateNotificationReq\x12\x19\n" +
 	"\bgroup_id\x18\x01 \x01(\tR\agroupId\x12\x1a\n" +
 	"\bdeadline\x18\x02 \x01(\tR\bdeadline\x12\x18\n" +
 	"\asubject\x18\x03 \x01(\tR\asubject\x12\x17\n" +
 	"\atask_id\x18\x04 \x01(\tR\x06taskId\x12!\n" +
 	"\fmaterials_id\x18\x05 \x01(\tR\vmaterialsId\x12\x19\n" +
-	"\bowner_id\x18\x06 \x01(\tR\aownerId\"\x17\n" +
+	"\bowner_id\x18\x06 \x01(\tR\aownerId\x12\x1a\n" +
+	"\bconsumer\x18\a \x01(\tR\bconsumer\"\x17\n" +
 	"\x15CreateNotificationRes\"(\n" +
 	"\x16RemoveNotioficationReq\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\"\x18\n" +
