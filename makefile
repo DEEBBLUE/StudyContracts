@@ -4,10 +4,13 @@ CONF = --proto_path=./contracts --go_out=$(PREF)$@ --go_opt=paths=source_relativ
 
 COM = $(CC) $(CONF)
 
-all: Notification 
+all: Notification SSO
 
 Notification:
 	$(COM) notification.proto 
+
+SSO:
+	$(COM) sso.proto 
 
 
 
